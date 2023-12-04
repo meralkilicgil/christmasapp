@@ -34,13 +34,6 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/matchResults")
-    public String matchResults(Model model){
-        List<Person> peopleList = personService.findAll();
-        List<MatchedPeople> matchResult = matchService.makeMatch(peopleList);
-        model.addAttribute("matchedPeopleList", matchResult);
-        return "matchResults";
-    }
 
     @GetMapping("/addPeople")
     public String getAddPeoplePage(Model model){
@@ -65,9 +58,15 @@ public class MainController {
     }
 
     @GetMapping("/makeMatch")
-    public String makeMatch(Model model){
-
-        return "redirect:/matchResults";
+    public String matchResults(Model model){
+        List<Person> peopleList = personService.findAll();
+        List<MatchedPeople> matchResult = matchService.makeMatch(peopleList);
+        model.addAttribute("matchedPeopleList", matchResult);
+        return "matchResults";
+    }
+    @GetMapping("/retryMatch")
+    public String retryMatch(){
+        return "redirect:/makeMatch";
     }
 
 }

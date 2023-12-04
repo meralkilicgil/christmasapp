@@ -5,7 +5,10 @@
     <title>Matches</title>
 </head>
 <body>
-<h2>Match Results:</h2>
+<h2>Match Results</h2>
+<form th:action="@{/retryMatch}" method="get">
+  <button type="submit">Retry</button>
+</form>
 <table>
   <thead>
   <tr>
