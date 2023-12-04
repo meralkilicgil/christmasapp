@@ -9,6 +9,22 @@
 <form th:action="@{/addPeople}" method="get">
     <button type="submit">Add new person</button>
 </form>
-
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each ="person : ${peopleList}">
+            <td th:utext="${person.name}">...</td>
+            <td><a th:href="@{'/deletePerson/' + ${person.id}}">Remove</a></td>
+        </tr>
+    </tbody>
+</table>
+<form th:action="@{/makeMatch}" method="get">
+    <button type="submit">Start Match</button>
+</form>
 </body>
 </html>

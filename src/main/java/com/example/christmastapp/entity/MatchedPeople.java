@@ -1,15 +1,13 @@
-package com.example.christmastapp.service;
+package com.example.christmastapp.entity;
 
-
-public class Person {
+public class MatchedPeople {
     private String name;
+
     private Person matchedPerson;
 
-    public Person() {
-    }
-
-    public Person(String name) {
+    public MatchedPeople(String name, Person matchedPerson) {
         this.name = name;
+        this.matchedPerson = matchedPerson;
     }
 
     public String getName() {
@@ -26,13 +24,5 @@ public class Person {
 
     public void setMatchedPerson(Person matchedPerson) {
         this.matchedPerson = matchedPerson;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", matchedPerson=" + matchedPerson +
-                '}';
     }
 }
