@@ -2,15 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add People</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A free HTML5/CSS3 template made exclusively for Codrops" />
+    <meta name="keywords" content="html5 template, css3, one page, animations, agency, portfolio, web design" />
+    <title>Christmas App</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <p th:value="${message}"></p>
-  <h2>People Add Form</h2>
-  <form action="#" th:action="@{/addPeople}" method="post" th:object="${person}">
-    <label>Name:</label>
-    <input type="text" th:field="*{name}">
-    <button type="submit">Add</button>
-  </form>
+<div class="content-container">
+    <div class="row hero-content">
+      <h2>People Add Form</h2>
+        <table>
+      <form action="#" th:action="@{/addPeople}" method="post" th:object="${person}">
+        <label>Name
+            <input type="text" th:field="*{name}">
+        </label>
+        <button type="submit"><i class="fa fa-plus"></i>Add</button>
+      </form>
+        </table>
+    </div>
+</div>
 </body>
 </html>

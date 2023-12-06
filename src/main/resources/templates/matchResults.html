@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Matches</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free HTML5/CSS3 template made exclusively for Codrops" />
+  <meta name="keywords" content="html5 template, css3, one page, animations, agency, portfolio, web design" />
+  <title>Christmas App</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/css/animate.css}" rel="stylesheet">
+  <link th:href="@{/css/styles.css}" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<h2>Match Results</h2>
-<form th:action="@{/retryMatch}" method="get">
-  <button type="submit">Retry</button>
-</form>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>The matched person</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each ="person : ${matchedPeopleList}">
-    <td th:utext="${person.name}">...</td>
-    <td th:utext="${person.matchedPerson.getName()}">...</td>
-  </tr>
-  </tbody>
-</table>
-<form th:action="@{/}" method="get">
-  <button type="submit">HOME</button>
-</form>
+<div class="content-container">
+  <h2>Match Results</h2>
+  <a th:href="@{'/retryMatch'}">Retry
+    <i class="fa fa-undo"></i></a>
+  <div th:if="${not #lists.isEmpty(matchedPeopleList)}">
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>The matched person</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each ="person : ${matchedPeopleList}">
+        <td th:utext="${person.name}"></td>
+        <td th:utext="${person.matchedPerson.getName()}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+    <a th:href="@{'/'}" class="read-more-btn"> Back Home <i class="fa fa-home"></i></a>
+</div>
 </body>
 
 </html>
